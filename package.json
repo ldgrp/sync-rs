@@ -1,0 +1,41 @@
+{
+  "name": "sync-rs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cleanup": "rimraf ./build",
+    "build-js": "node build.js --sourcemap",
+    "build-js-prod": "node build.js --minify",
+    "watch-js": "node build.js --sourcemap --watch",
+    "build": "npm run cleanup && npm run build-js",
+    "build-prod": "npm run cleanup && npm run build-js-prod",
+    "watch": "concurrently \"npm run watch-js\"",
+    "start": "concurrently \"npm run watch\" \"esbuild --servedir=build\"",
+    "tauri": "tauri",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Leo Orpilla III <dev@ldgrp.me>",
+  "license": "MIT",
+  "devDependencies": {
+    "@tauri-apps/cli": "^1.0.0-beta.10",
+    "@testing-library/react": "^12.1.0",
+    "@types/react": "^17.0.20",
+    "@types/react-dom": "^17.0.9",
+    "autoprefixer": "^10.3.4",
+    "concurrently": "^6.2.1",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "@chakra-ui/icons": "^1.0.15",
+    "@chakra-ui/react": "^1.6.7",
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@tauri-apps/api": "^1.0.0-beta.8",
+    "esbuild": "^0.12.26",
+    "framer-motion": "^4.1.17",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
